@@ -1,12 +1,12 @@
 import React from "react";
-import SignIn from "./pages/SignIn";
+import PageRenderer from "./components/PageRenderer";
+import { UserContextProvider } from "./context/UserContext";
 
 function App() {
   return (
-    <>
-      <SignIn />
-      something
-    </>
+    <UserContextProvider>
+      <PageRenderer />
+    </UserContextProvider>
   );
 }
 

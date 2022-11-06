@@ -35,7 +35,7 @@ export const InputField = styled.input`
   border: 1px solid #dfdfdf;
   border-radius: 4px;
   @media (max-width: 768px) {
-    width: 90%;
+    width: 70%;
   }
 `;
 
@@ -49,7 +49,7 @@ export const Button = styled.button`
   padding: 10px;
   width: 32%;
   @media (max-width: 768px) {
-    width: 94%;
+    width: 74%;
   }
   cursor: pointer;
   &:hover {
