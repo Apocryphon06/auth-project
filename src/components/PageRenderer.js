@@ -7,7 +7,7 @@ function PageRenderer() {
   // eslint-disable-next-line
   const [path, setPath] = useContext(UserContext);
   const renderFunction = () => {
-    if (path === "auth-success") return <Home />;
+    if (path === "user details found") return <Home />;
     else return <SignIn />;
   };
 

@@ -1,5 +1,7 @@
 import React, { useContext, useState } from "react";
 import { UserContext } from "../context/UserContext";
+import axios from "axios";
+import { nanoid } from "nanoid";
 import lock from "./lock.png";
 import { Container } from "./Styles";
 import { Wrapper } from "./Styles";
@@ -13,6 +15,24 @@ function SignIn() {
   const [pword, setPword] = useState("");
   // eslint-disable-next-line
   const [path, setPath] = useContext(UserContext);
+
+  const validate = () => {
+    const postOptions = {
+      method: "POST",
+      url: "http://localhost:8080/api/user/login",
+      data: {username: uname, password: pword },
+    };
+
+    axios
+      .request(postOptions)
+      .then(function (response) {
+        setPath(response.data);
+        console.log(response.data);
+      })
+      .catch(function (error) {
+        console.error(error);
+      });
+  };
 
   return (
     <Container>
@@ -37,8 +57,7 @@ function SignIn() {
         />
         <Button
           onClick={() => {
-            console.log(uname, pword);
-            setPath("auth-success");
+            validate();
           }}
         >
           Sign in
